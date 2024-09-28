@@ -1,0 +1,34 @@
+.viewequipment-container {
+    width: 100%;
+    max-width: 1080px;
+    margin: 0 auto;
+    padding-top: 100px;
+    padding-bottom: 100px;
+    display: flex;
+    justify-content: center;
+    overflow: auto;
+}
+
+.viewequipment-container section {
+    width: 100%;
+    max-width: 380px;
+}
+
+.viewequipment-container section.form img {
+    width: 70%;
+    margin: 0 auto;
+    display: block;
+    padding: 20px;
+}
+
+.viewequipment-container section.form h1 {
+    font-weight: bold;
+    text-align: left; 
+    margin-bottom: 10px; 
+    padding: 0; 
+}
+
+.camp {
+    margin-bottom: 10px;
+    font-size: 12px;
+}
