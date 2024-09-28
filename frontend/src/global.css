@@ -1,0 +1,37 @@
+@import url('https://fonts.googleapis.com/css2?family=Poppins:wght@100;400;500;700&display=swap');
+
+*{
+    margin: 0;
+    padding: 0;
+    outline: 0;
+    box-sizing: border-box;
+}
+
+body, .button, .equipments-container h1, .newequipment-container section.form h1{
+    font: 400 14px 'Poppins', sans-serif;
+}
+
+body{
+    background: #FFFFFF;
+    -webkit-font-smoothing: antialiased;
+}
+
+.button {
+    background-color: #2E186A;
+    color: white;
+    padding: 8px 16px;
+    border-radius: 5px;
+    text-decoration: none;
+    cursor: pointer;
+    display: inline-block;
+    transition: background-color 0.3s ease;
+    margin-top: 20px;
+    border: none;
+    outline: none;
+    box-shadow: none;
+    text-align: center;
+}
+
+.button:hover {
+    background-color: #FC7633;
+}
