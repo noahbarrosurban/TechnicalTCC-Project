@@ -1,7 +1,6 @@
-package equipamentos.backend.providers
+package equipments.backend.modules
 
-import equipamentos.backend.Equipment
-import equipamentos.backend.repositories.EquipmentRepository
+import equipments.backend.models.Equipment
 import org.springframework.stereotype.Component
 import java.util.*
 

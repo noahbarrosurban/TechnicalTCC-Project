@@ -1,8 +1,7 @@
-package equipamentos.backend.controllers
+package equipments.backend.modules
 
-import equipamentos.backend.RequestEquipmentDTO
-import equipamentos.backend.ResponseEquipmentDTO
-import equipamentos.backend.services.EquipmentService
+import equipments.backend.models.RequestEquipmentDTO
+import equipments.backend.models.ResponseEquipmentDTO
 import io.swagger.annotations.Api
 import io.swagger.v3.oas.annotations.Operation
 import io.swagger.v3.oas.annotations.responses.ApiResponse

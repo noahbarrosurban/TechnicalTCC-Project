@@ -1,6 +1,7 @@
-package equipamentos.backend
+package equipments.backend.models
 
 import com.fasterxml.jackson.annotation.JsonProperty
+import equipments.backend.models.Equipment
 import io.swagger.annotations.ApiModel
 import org.springframework.format.annotation.DateTimeFormat
 import java.util.*

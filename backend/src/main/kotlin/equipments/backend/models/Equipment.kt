@@ -1,4 +1,4 @@
-package equipamentos.backend
+package equipments.backend.models
 
 import jakarta.persistence.*
 import org.springframework.data.jpa.domain.support.AuditingEntityListener

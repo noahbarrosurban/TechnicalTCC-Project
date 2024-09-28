@@ -1,9 +1,8 @@
-package equipamentos.backend.services
+package equipments.backend.modules
 
-import equipamentos.backend.RequestEquipmentDTO
-import equipamentos.backend.ResponseEquipmentDTO
-import equipamentos.backend.Equipment
-import equipamentos.backend.providers.EquipmentProvider
+import equipments.backend.models.RequestEquipmentDTO
+import equipments.backend.models.ResponseEquipmentDTO
+import equipments.backend.models.Equipment
 import org.springframework.stereotype.Service
 import java.util.UUID
 
