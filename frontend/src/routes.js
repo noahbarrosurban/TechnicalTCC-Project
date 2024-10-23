@@ -1,6 +1,7 @@
 import React from "react";
-import { BrowserRouter, Route, Routes } from "react-router-dom";
+import { BrowserRouter, Route, Routes, useLocation } from "react-router-dom";
 
+import Login from "./components/login";
 import NavBar from "./components/navbar";
 import Equipments from "./components/equipments";
 import NewEquipment from "./components/newequipment";
@@ -8,17 +9,28 @@ import ViewEquipment from "./components/viewequipment";
 import UpdateEquipment from "./components/updateequipment";
 import Footer from "./components/footer";
 
-export default function AppRoutes() {
+function Layout() {
+  const location = useLocation(); 
+  const isLoginPage = location.pathname === "/"; 
   return (
-    <BrowserRouter>
-    <NavBar />
+    <>
+      {!isLoginPage && <NavBar />}
       <Routes>
-        <Route path="/" element={<Equipments />} />
+        <Route path="/" element={<Login />} />
+        <Route path="/equipamentos" element={<Equipments />} />
         <Route path="/cadastro" element={<NewEquipment />} />
         <Route path="/visualizar" element={<ViewEquipment />} />
         <Route path="/atualizar" element={<UpdateEquipment />} />
       </Routes>
-      <Footer />
+      {!isLoginPage && <Footer />}
+    </>
+  );
+}
+
+export default function AppRoutes() {
+  return (
+    <BrowserRouter>
+      <Layout />
     </BrowserRouter>
   );
 }

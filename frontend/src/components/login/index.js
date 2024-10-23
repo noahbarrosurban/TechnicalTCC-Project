@@ -1,41 +1,31 @@
 import React, { useState } from 'react';
 import { useNavigate } from "react-router-dom";
-import axios from 'axios';
 import './styles.css';
+import api from '../../services/api';
 import imagem from '../../assets/login.png';
 
 export default function Login() {
-
     const [username, setUsername] = useState('');
     const [password, setPassword] = useState('');
-
     const navigate = useNavigate();
 
-    async function login(event) {
-        event.preventDefault();
-        
+    async function login(e) {
+        e.preventDefault();
+        const data = {
+            username,
+            password
+        };
+
         try {
-            const response = await axios.post('http://localhost:8080/auth/login', 
-                { username, password }, 
-                {
-                    headers: {
-                        'Content-Type': 'application/json'
-                    }
-                }
-            );
-            const { token } = response.data;
-
-            // Armazene o token JWT no localStorage
-            localStorage.setItem('token', token);
-
-            // Navegue para a rota desejada após o login bem-sucedido
-            navigate('/dashboard');
+            const response = await api.post('/login', data);
+            localStorage.setItem('username', username);
+            localStorage.setItem('jwt', response.data.token);
+            navigate('/equipamentos');
         } catch (error) {
-            console.error('Erro ao fazer login', error);
-            alert('Falha no login, verifique suas credenciais');
+            alert('Erro ao realizar login, tente novamente.');
         }
     }
-
+    
     return (
         <div className='login-container'>
             <section className='form'>
@@ -46,19 +36,21 @@ export default function Login() {
                     <input 
                         placeholder="Username" 
                         value={username} 
-                        onChange={(e) => setUsername(e.target.value)} 
+                        onChange={e => setUsername(e.target.value)} 
                     />
                     <input 
                         type="password" 
                         placeholder="Password" 
                         value={password} 
-                        onChange={(e) => setPassword(e.target.value)} 
+                        onChange={e => setPassword(e.target.value)} 
                     />
 
                     <button className="button" type="submit">Entrar</button>
                 </form>
             </section>
-            <img src={imagem} alt='Login'/>
+            <section className='image'>
+                <img src={imagem} alt='Login'/>
+            </section>
         </div>
     );
 }

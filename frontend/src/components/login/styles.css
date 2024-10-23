@@ -1,7 +1,6 @@
 .login-container {
     display: flex;
     height: 100vh;
-    background-color: white;
 }
 
 .login-container section {
@@ -9,30 +8,31 @@
     justify-content: center;
     align-items: center;
     width: 50%;
+    padding: 20px;
 }
 
 .login-container section.form {
     flex-direction: column;
-    padding: 20px;
-    max-width: 300px;
-    margin: 0 auto;
+    max-width: 370px;
+    width: 100%; 
+    margin: auto; 
+}
+
+.login-container section.form h1,
+.login-container section.form h2 {
+    text-align: center;
+    width: 100%;
 }
 
 .login-container section.form h1 {
     font-weight: bold;
-    font-size: 28px;
+    font-size: 36px;
     margin-bottom: 10px;
-    text-align: center;
-    width: 100%;
 }
 
 .login-container section.form h2 {
     font-size: 14px;
-    margin-bottom: 50px; /* Aumentado o espaço inferior */
-    text-align: center;
-    width: 100%;
-    max-width: 300px;
-    margin: 0 auto;
+    margin-bottom: 50px;
 }
 
 .login-container section.form input {
@@ -45,13 +45,13 @@
 
 .login-container section.image {
     display: flex;
-    justify-content: center;
-    align-items: center;
-    background-color: #f0f0f0;
+    justify-content: center; 
+    align-items: center; 
 }
 
 .login-container section.image img {
-    max-width: 100%;
-    max-height: 100px; /* Altura máxima da imagem ajustada */
+    max-height: 600px; 
+    width: auto;
     height: auto;
+    max-width: 80%; 
 }
