@@ -19,8 +19,8 @@ function Layout() {
         <Route path="/" element={<Login />} />
         <Route path="/equipamentos" element={<Equipments />} />
         <Route path="/cadastro" element={<NewEquipment />} />
-        <Route path="/visualizar" element={<ViewEquipment />} />
-        <Route path="/atualizar" element={<UpdateEquipment />} />
+        <Route path="/visualizar/:id" element={<ViewEquipment />} />
+        <Route path="/atualizar/:id" element={<UpdateEquipment />} />
       </Routes>
       {!isLoginPage && <Footer />}
     </>
