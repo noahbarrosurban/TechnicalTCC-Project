@@ -44,7 +44,7 @@ export default function NewEquipment() {
             }
             alert(errorMessage);
         }
-    }
+    };
 
     return (
         <div className="newequipment-container">
