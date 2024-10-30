@@ -56,6 +56,20 @@ export default function UpdateEquipment() {
         }
     }
 
+    // Função para deletar o equipamento
+    async function handleDelete() {
+        const confirmDelete = window.confirm("Tem certeza de que deseja excluir este equipamento?");
+        if (!confirmDelete) return;
+
+        try {
+            await api.delete(`/equipment/delete/${id}`);
+            alert("Equipamento excluído com sucesso!");
+            navigate("/equipamentos"); // Redireciona para a lista de equipamentos após exclusão
+        } catch (error) {
+            alert("Erro ao excluir equipamento, tente novamente.");
+        }
+    }
+
     return (
         <div className="updateequipment-container">
             <section className="form">
@@ -110,7 +124,10 @@ export default function UpdateEquipment() {
                             onChange={e => setAcquisitionDate(e.target.value)}
                         />
                     </div>
-                    <button className="button" type="submit">Salvar</button>
+                    <div className="button-group">
+                        <button className="button" type="submit">Salvar</button>
+                        <button className="button delete" type="button" onClick={handleDelete}>Deletar</button>
+                    </div>
                 </form>
             </section>
         </div>
