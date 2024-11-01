@@ -16,7 +16,7 @@ export default function Equipments() {
       try {
         const response = await api.get('/equipment/read');
         const allEquipments = response.data;
-        const latestEquipments = allEquipments.slice(-3).reverse();
+        const latestEquipments = allEquipments.reverse();
         setEquipments(latestEquipments);
       } catch (error) {
         console.error('Erro ao buscar equipamentos:', error);

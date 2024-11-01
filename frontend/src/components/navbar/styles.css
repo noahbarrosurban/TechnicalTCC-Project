@@ -14,5 +14,14 @@
     right: 0;
     margin: 10px;
     width: 30px;
-    height: 30px;
+    height: auto;
+}
+
+.navbar .logo {
+    position: relative;
+    bottom: 0;
+    right: 0;
+    margin: 10px;
+    width: 30px;
+    height: auto;
 }
