@@ -13,7 +13,7 @@ export default function NewEquipment() {
     const [segment, setSegment] = useState('');
     const [model, setModel] = useState('');
     const [serial_number, setSerialNumber] = useState('');
-    const [status, setStatus] = useState('');
+    const [status, setStatus] = useState(''); // Mantém como string para o select
     const [acquisition_date, setDate] = useState('');
 
     const navigate = useNavigate();
@@ -21,12 +21,15 @@ export default function NewEquipment() {
     async function createNewEquipment(e) {
         e.preventDefault();
 
+        // Mapeia o status para booleano
+        const booleanStatus = status === "Em Uso" ? false : true;
+
         const data = {
             name,
             segment,
             model,
             serial_number,
-            status,
+            status: booleanStatus, // Envia o valor booleano
             acquisition_date
         };
 
@@ -50,44 +53,56 @@ export default function NewEquipment() {
         <div className="newequipment-container">
             <section className="form">
                 <img src={generica} alt="" />
-                <h1>Cadastrar Novo Equipamento</h1>
+                <h1>Cadastrar Equipamento</h1>
                 <form onSubmit={createNewEquipment}>
-                    <div className="camp">
+                    <div className="campo">
                         Nome
                         <input placeholder="Exemplo & Exemplo"
                             value={name}
                             onChange={e => setName(e.target.value)}
                         />
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Segmento
-                        <input placeholder="Exemplo"
+                        <select
                             value={segment}
                             onChange={e => setSegment(e.target.value)}
-                        />
+                        >
+                            <option value="" disabled>Selecione um segmento</option>
+                            <option value="Computadores & Notebooks">Computadores & Notebooks</option>
+                            <option value="Periféricos & Acessórios">Periféricos & Acessórios</option>
+                            <option value="Software">Software</option>
+                            <option value="Servidores">Servidores</option>
+                            <option value="Rede">Rede</option>
+                            <option value="Impressoras">Impressoras</option>
+                        </select>
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Modelo
                         <input placeholder="XXXXXxx/X"
                             value={model}
                             onChange={e => setModel(e.target.value)}
                         />
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Número de Série
                         <input placeholder="Número de Série"
                             value={serial_number}
                             onChange={e => setSerialNumber(e.target.value)}
                         />
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Status
-                        <input placeholder="Em..."
+                        <select
                             value={status}
                             onChange={e => setStatus(e.target.value)}
-                        />
+                        >
+                            <option value="" disabled>Selecione um status</option>
+                            <option value="Em Uso">Em Uso</option>
+                            <option value="Em Estoque">Em Estoque</option>
+                        </select>
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Data de Aquisição
                         <input type="date"
                             value={acquisition_date}

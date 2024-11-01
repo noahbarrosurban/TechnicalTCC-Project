@@ -23,12 +23,31 @@
 
 .viewequipment-container section.form h1 {
     font-weight: bold;
-    text-align: left; 
-    margin-bottom: 10px; 
-    padding: 0; 
+    font-size: 24px;
+    text-align: left;
+    margin-bottom: 20px;
+    padding: 0;
 }
 
 .camp {
-    margin-bottom: 10px;
+    margin-bottom: 15px;
+}
+
+.camp label {
+    display: block;
     font-size: 12px;
+    color: #333;
+    margin-bottom: 5px;
+}
+
+.camp input {
+    width: 100%;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    background-color: #f9f9f9;
+    color: #333;
+    font-size: 14px;
+    pointer-events: none;
+    opacity: 0.9;
 }

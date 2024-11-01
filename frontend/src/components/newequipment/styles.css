@@ -1,56 +1,54 @@
 .newequipment-container {
-    width: 100%;
     max-width: 1080px;
     margin: 0 auto;
-    padding-top: 100px;
-    padding-bottom: 100px;
+    padding: 100px 0;
     display: flex;
     justify-content: center;
-    overflow: auto;
 }
-
 
 .newequipment-container section {
     width: 100%;
     max-width: 380px;
-}
-
-.newequipment-container section.form {
-    max-width: 350px;
-    margin-right: 30px;
     display: flex;
     flex-direction: column;
     align-items: flex-start;
 }
 
 .newequipment-container section.form img {
-    width: 45%;
-    margin: 0 auto;
-    display: block;
-    padding: 20px;
-}
-
-.newequipment-container section.form h1,
-.newequipment-container section.form input {
-    width: 100%;
+    width: 70%;
+    margin: 20px auto;
 }
 
 .newequipment-container section.form h1 {
-    font-weight: bold;
-    text-align: left; 
-    margin-bottom: 10px; 
-    padding: 0; 
+    font-size: 24px;
+    margin-bottom: 10px;
 }
 
-.newequipment-container section.form input {
-    min-width: 300px;
+.newequipment-container section.form input,
+.newequipment-container section.form select {
+    width: 100%;
     padding: 10px;
     border: 1px solid #ccc;
     border-radius: 5px;
     margin-bottom: 10px;
+    font-size: 14px;
+    color: #7e7e7e; 
 }
 
-.camp {
+.newequipment-container section.form select option:first-child {
+    color: #7e7e7e;
+}
+
+.newequipment-container section.form select option {
+    color: black;
+}
+
+.campo {
     margin-bottom: 10px;
     font-size: 12px;
+}
+
+.button-group {
+    display: flex;
+    gap: 10px;
 }

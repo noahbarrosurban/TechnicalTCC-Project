@@ -7,7 +7,7 @@ import './styles.css';
 import macbook from '../../assets/macbook.png';
 
 export default function UpdateEquipment() {
-    const { id } = useParams(); // Captura o ID da URL
+    const { id } = useParams();
     const navigate = useNavigate();
 
     const [name, setName] = useState('');
@@ -17,7 +17,6 @@ export default function UpdateEquipment() {
     const [status, setStatus] = useState('');
     const [acquisition_date, setAcquisitionDate] = useState('');
 
-    // Busca os dados do equipamento
     useEffect(() => {
         async function fetchEquipment() {
             try {
@@ -27,7 +26,7 @@ export default function UpdateEquipment() {
                 setSegment(equipment.segment);
                 setModel(equipment.model);
                 setSerialNumber(equipment.serial_number);
-                setStatus(equipment.status);
+                setStatus(equipment.status ? "Em Estoque" : "Em Uso"); 
                 setAcquisitionDate(equipment.acquisition_date);
             } catch (error) {
                 console.error('Erro ao buscar o equipamento:', error);
@@ -36,27 +35,26 @@ export default function UpdateEquipment() {
         fetchEquipment();
     }, [id]);
 
-    // Função para atualizar o equipamento
     async function handleUpdate(e) {
         e.preventDefault();
+        const booleanStatus = status === "Em Uso" ? false : true; // Convertendo para booleano
         const data = {
             name,
             segment,
             model,
             serial_number,
-            status,
+            status: booleanStatus,
             acquisition_date
         };
 
         try {
             await api.put(`/equipment/update/${id}`, data);
-            navigate(`/visualizar/${id}`); // Redireciona para a página de visualização do equipamento
+            navigate(`/visualizar/${id}`);
         } catch (error) {
             alert('Erro ao atualizar equipamento, tente novamente.');
         }
     }
 
-    // Função para deletar o equipamento
     async function handleDelete() {
         const confirmDelete = window.confirm("Tem certeza de que deseja excluir este equipamento?");
         if (!confirmDelete) return;
@@ -64,7 +62,7 @@ export default function UpdateEquipment() {
         try {
             await api.delete(`/equipment/delete/${id}`);
             alert("Equipamento excluído com sucesso!");
-            navigate("/equipamentos"); // Redireciona para a lista de equipamentos após exclusão
+            navigate("/equipamentos");
         } catch (error) {
             alert("Erro ao excluir equipamento, tente novamente.");
         }
@@ -76,7 +74,7 @@ export default function UpdateEquipment() {
                 <img src={macbook} alt="Equipamento" />
                 <h1>Atualizar Equipamento</h1>
                 <form onSubmit={handleUpdate}>
-                    <div className="camp">
+                    <div className="campo">
                         Nome
                         <input
                             placeholder="Exemplo & Exemplo"
@@ -84,15 +82,22 @@ export default function UpdateEquipment() {
                             onChange={e => setName(e.target.value)}
                         />
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Segmento
-                        <input
-                            placeholder="Exemplo"
+                        <select
                             value={segment}
                             onChange={e => setSegment(e.target.value)}
-                        />
+                        >
+                            <option value="" disabled>Exemplo & Exemplo</option>
+                            <option value="Computadores & Notebooks">Computadores & Notebooks</option>
+                            <option value="Periféricos & Acessórios">Periféricos & Acessórios</option>
+                            <option value="Software">Software</option>
+                            <option value="Servidores">Servidores</option>
+                            <option value="Rede">Rede</option>
+                            <option value="Impressoras">Impressoras</option>
+                        </select>
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Modelo
                         <input
                             placeholder="XXXXXxx/X"
@@ -100,7 +105,7 @@ export default function UpdateEquipment() {
                             onChange={e => setModel(e.target.value)}
                         />
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Número de Série
                         <input
                             placeholder="Número de Série"
@@ -108,15 +113,18 @@ export default function UpdateEquipment() {
                             onChange={e => setSerialNumber(e.target.value)}
                         />
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Status
-                        <input
-                            placeholder="Em..."
+                        <select
                             value={status}
                             onChange={e => setStatus(e.target.value)}
-                        />
+                        >
+                            <option value="" disabled>Em...</option>
+                            <option value="Em Uso">Em Uso</option>
+                            <option value="Em Estoque">Em Estoque</option>
+                        </select>
                     </div>
-                    <div className="camp">
+                    <div className="campo">
                         Data de Aquisição
                         <input
                             type="date"
