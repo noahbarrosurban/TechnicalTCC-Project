@@ -2,7 +2,6 @@ import React, { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 
 import api from '../../services/api';
-
 import './styles.css';
 import macbook from '../../assets/macbook.png';
 
