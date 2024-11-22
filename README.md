@@ -1,6 +1,6 @@
 # Sistema de Gerenciamento de Equipamentos de TI  
 
-> "A tecnologia só é tecnologia enquanto não nos acostumamos com ela." — Robert Heinlein  
+> "Educação nunca foi despesa. Sempre foi investimento com retorno garantido." — Arthur Lewis
 
 ![java](https://badgen.net/badge/Java/17/red?scale=1.2) ![kotlin](https://badgen.net/badge/Kotlin/1.9.25/green?scale=1.2) ![spring-boot](https://badgen.net/badge/Spring%20Boot/3.3.3/blue?scale=1.2) ![react](https://badgen.net/badge/React/18.2.0/blue?scale=1.2) ![node](https://badgen.net/badge/Node.js/18.x/orange?scale=1.2)
 
