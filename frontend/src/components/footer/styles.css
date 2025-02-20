@@ -1,0 +1,18 @@
+.footer {
+    background-color: #F5F6F7;
+    box-shadow: 0 -4px 6px rgba(0, 0, 0, 0.1);
+    font-size: 10px;
+    text-align: center;
+    position: fixed;
+    bottom: 0;
+    width: 100%;
+    padding: 10px 0;
+    margin-top: 30px;
+}
+
+.email {
+    display: block;
+    color: #2E186A; 
+    font-weight: normal;
+    margin-top: 5px;
+}

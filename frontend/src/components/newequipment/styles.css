@@ -1,0 +1,34 @@
+.newequipment-container {
+    max-width: 1080px;
+    margin: 0 auto;
+    padding: 100px 0;
+    display: flex;
+    justify-content: center;
+}
+
+.newequipment-container section {
+    width: 100%;
+    max-width: 380px;
+    display: flex;
+    flex-direction: column;
+    align-items: flex-start;
+}
+
+.newequipment-container section.form img {
+    margin: 20px auto;
+}
+
+.newequipment-container section.form h1 {
+    font-weight: bold;
+    margin-bottom: 10px; 
+}
+
+.newequipment-container section.form input, .newequipment-container section.form select {
+    width: 100%;
+    min-width: 300px;
+    padding: 10px;
+    border: 1px solid #ccc;
+    border-radius: 5px;
+    margin-bottom: 10px;
+    color: black;
+}
